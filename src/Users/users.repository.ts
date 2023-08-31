@@ -13,4 +13,8 @@ export class UserRepository {
     async getUserByEmail (email: string) {
         return await this.prisma.users.findFirst({where : {email}})
     }
+
+    async getUserById (id: number) {
+        return await this.prisma.users.findUnique({where: {id}})
+    }
 }
