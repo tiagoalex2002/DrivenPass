@@ -15,6 +15,7 @@ model Users {
   email    String  @unique
   password String
   Credentials Credentials[]
+  SafeNotes   SafeNotes[]
 }
 
 model Credentials {
@@ -25,4 +26,21 @@ model Credentials {
   username String
   password String
   url      String
+}
+
+model SafeNotes {
+   id       Int      @id @default(autoincrement())
+   title    String  @unique
+   note     String
+   userId   Int
+   User     Users   @relation(fields: [userId], references: [id])
+}
+
+model Cards {
+  id           Int      @id @default(autoincrement())
+  cardNumber   Int
+  expireDate   String
+  password     String
+  isVirtual    Boolean
+  Type         String
 }
