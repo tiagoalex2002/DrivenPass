@@ -1,9 +1,11 @@
-import { Controller, Body, Delete } from "@nestjs/common";
+import { Controller, Body, Delete, UseGuards } from "@nestjs/common";
 import { EraseDTO } from "../Dtos/erase.dto";
 import { EraseService } from "./erase.service";
 import { HttpStatus, HttpException } from "@nestjs/common";
 import { User } from "../Decorators/user.decorators";
+import { AuthGuard } from "../Guards/authGuard";
 
+@UseGuards(AuthGuard)
 @Controller('erase')
 export class EraseController {
     constructor (private eraseService: EraseService) {}
