@@ -30,9 +30,9 @@ export class CredentialsService {
         }
     }
 
-    async getCredentials() {
+    async getCredentials(@User() user) {
         const credentials = []
-        const info = await this.credentialsRepository.getCredentials()
+        const info = await this.credentialsRepository.getCredentials(user.id)
         if( info.length === 0) {
             return credentials;
         } else {

@@ -23,8 +23,8 @@ export class NotesService {
         }
     }
 
-    async getNotes() {
-        return await this.notesRepository.getNotes()
+    async getNotes(@User() user) {
+        return await this.notesRepository.getNotes(user.id)
     }
 
     async getNoteById(id: number, @User() user) {

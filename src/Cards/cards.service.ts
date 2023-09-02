@@ -33,8 +33,8 @@ export class CardsService {
         }
     }
 
-    async getCards() {
-        return await this.cardsRepository.getCards()
+    async getCards(@User() user) {
+        return await this.cardsRepository.getCards(user.id)
     }
 
     async getCardById(id: number, @User() user) {

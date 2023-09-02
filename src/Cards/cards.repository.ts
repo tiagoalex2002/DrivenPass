@@ -10,8 +10,8 @@ export class CardsRepository {
         return await this.prisma.cards.create({data: card})
     }
 
-    async getCards() {
-        return await this.prisma.cards.findMany()
+    async getCards(userId: number) {
+        return await this.prisma.cards.findMany({where: {userId}})
     }
 
     async getCardById(id: number) {

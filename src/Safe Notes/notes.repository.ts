@@ -10,8 +10,8 @@ export class NotesRepository {
         return await this.prisma.safenotes.create({data: {note}})
     }
 
-    async getNotes() {
-        return await this.prisma.safenotes.findMany()
+    async getNotes(userId: number) {
+        return await this.prisma.safenotes.findMany({where: {userId}})
     }
 
     async getNoteById(id: number) {

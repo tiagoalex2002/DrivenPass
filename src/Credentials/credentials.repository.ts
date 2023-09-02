@@ -10,8 +10,8 @@ export class CredentialsRepository {
         return await this.prisma.credentials.create({data: credential})
     }
 
-    async getCredentials () {
-        return await this.prisma.credentials.findMany()
+    async getCredentials (userId: number) {
+        return await this.prisma.credentials.findMany({where : {userId}})
     }
 
     async getCredentialById(id: number) {
