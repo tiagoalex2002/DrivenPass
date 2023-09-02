@@ -18,7 +18,8 @@ export class NotesService {
                 throw new ConflictException('CONFLICT')
             }
         } else {
-            throw new NotFoundException('NOT FOUND')
+            const body = {title: note.title, note: note.note, userId: user.id}
+            return this.notesRepository.createNotes(body)
         }
     }
 

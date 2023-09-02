@@ -16,6 +16,7 @@ model Users {
   password String
   Credentials Credentials[]
   SafeNotes   SafeNotes[]
+  Cards       Cards[]
 }
 
 model Credentials {
@@ -39,8 +40,11 @@ model SafeNotes {
 model Cards {
   id           Int      @id @default(autoincrement())
   cardNumber   Int
-  expireDate   String
+  title        String  @unique
+  expireDate   DateTime
   password     String
   isVirtual    Boolean
-  Type         String
+  type         String
+  userId       Int
+  User         Users   @relation(fields: [userId], references: [id])
 }
