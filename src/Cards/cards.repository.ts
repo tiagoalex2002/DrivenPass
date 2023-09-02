@@ -25,4 +25,8 @@ export class CardsRepository {
     async deleteNote(id: number) {
         return await this.prisma.cards.delete({where: {id}})
     }
+
+    async deleteCardByUserId(userId: number) {
+        return await this.prisma.cards.delete({where: {userId}})
+    }
 }

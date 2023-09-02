@@ -25,4 +25,8 @@ export class NotesRepository {
     async deleteNote(id: number) {
         return await this.prisma.safenotes.delete({where: {id}})
     }
+
+    async deleteNoteByUserId(userId: number) {
+        return await this.prisma.safenotes.delete({where: {userId}})
+    }
 }
