@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. This application is a simulation of a personal information management system, where logged users are able to register passwords, personal notes and credit/debit cards, as well as delete all of those informations when they see fit. In addition to the Nest.js framework, this project is embeded with the following technologies : Javascript (as main programming languague) , PrismaORM ( connection with the relational database), PostgreSQL (relational database), Swagger documentation and layers architeture.
 
 ## Installation
 
@@ -35,6 +35,9 @@ $ npm install
 ## Running the app
 
 ```bash
+#Running Prisma Client
+$ npx prisma generate
+
 # development
 $ npm run start
 
